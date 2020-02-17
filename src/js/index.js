@@ -1,4 +1,8 @@
-// Global app controller
-import num from './test';
-const x = 23;
-console.log(`I imported ${num} from another module! Variable x is ${x}`);
+import axios from 'axios';
+
+async function getResults(query) {
+    const res = await axios(`https://forkify-api.herokuapp.com/api/search?&q=${query}`);
+    const recipes = res.data.recipes;
+    console.log(recipes);
+}
+getResults('pizza');
